@@ -1,0 +1,161 @@
+#include<iostream>
+#include<fstream>
+#include <thread>
+#include <chrono>
+#include<string.h>
+#include<conio.h>
+using namespace std;
+class Menu{
+    int logging(int log);
+    public:
+        // void choices_available(); //stored choices or candidates of opposite gender
+    private:
+    int Id_no,phone_no,profile_pic;
+    char bio,dob,college,username[20];
+    char name[25],education[25],Gender;
+    char password[10],password1[10];
+
+    //if new clint ask for sign up
+    //For New User: 
+    void new_clint_info(){
+        cout<<"//WElcome To The Dating Site// \n";
+        cout<<"Create Your Username: ";
+        cin>>username;
+        int arraySize_u = *(&username + 1) - username;
+        ofstream fu("E:\\project1\\Username.txt",std::ofstream::out);
+        if (fu.is_open())
+
+        { int i;
+            for  (i = 0; i <arraySize_u; i++)
+            {
+                fu<<username[i];
+            }
+            fu.close();
+            
+        }
+        else{
+            cout<<"Problem With Opening The File";
+        }
+        
+        cout<<"Create YOur password: ";
+        cin>>password;
+        int arraySize = *(&password + 1) - password;
+    
+        ofstream fp("E:\\project1\\Candidates_PassWord.txt",std::ofstream::out);
+        if (fp.is_open())
+        { int i;
+            for  (i = 0; i <arraySize; i++)
+            {
+                fp<<password[i]<<"\n";
+            }
+            fp.close();
+            
+        }
+        else{
+            cout<<"Problem With Opening The File";
+        }
+        cout<<"Congratulations You Have Successfully CReated An ACCOUNT\n";
+        cout << "Press Enter to LOGIN: \n";
+        getch();
+        user_history();
+    }
+    void clint_profile(){           //creating and storing in data base 
+        cout<<"UPload Your PRofile Pic";
+        cin>>profile_pic;
+        cout<<"Write Your Bio: \n";
+        cin>>bio;                        
+        cout<<"Enter Your DOB: \n";
+        cin>>dob;
+        cout<<"Enter College NAme :  \n";
+        cin>>college;
+        cout<<"Press Enter To Start Swipping: \n";
+        getch();
+        logging();
+    }
+
+    //for existing user:
+
+    void clint_info(){
+        cout<<"//Enter YOur LOgin CridenTials //\n";
+        cout<<"Enter Your USerName:";
+        cin>>name;
+        cout<<"Enter Your PAssword: ";
+        cin>>password1;
+        int arraySize = *(&password1 + 1) - password1;
+    
+        ofstream fp("E:\\project1\\Temp_PassWord.txt",std::ofstream::out);
+        if (fp.is_open())
+        { int i;
+            for  (i = 0; i <arraySize; i++)
+            {
+                fp<<password1[i]<<"\n";
+            }
+            fp.close();
+            
+        }
+        else{
+            cout<<"Problem With Opening The File";
+        }
+        logging();
+    } 
+public:
+void user_history(){
+    int new_existing;
+    cout<<"********WELCOME TO THE DATING SITE REPLICA********\n";
+    cout<<"\n PRESS 1 IF YOu ARE A NEW User \n PREss 2 IF your Are An Existing USer\n";
+    cin>>new_existing;
+    if (new_existing==1)
+    {
+        new_clint_info();
+    }
+    else{
+        clint_info();
+    }
+}
+
+void choices_available(int &filetoopen){
+        cout<<" 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻 \n 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻 \n 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻 \n 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻\n";//import This Randomly From The Girl DAtabase
+       cout<<"🌈AARYA🌈";
+       cout<<"🔞19🔞";
+       cout<<"🏫SYMBIOSIS PUNE🏫";
+       cout<<"💕she/her💕";
+       cout<<"Press 1 To LIke 💞💞\n Press 0 To unlike:💔❤️‍🩹";
+}
+void logging(){
+    if (strcmp(password1,password) == 0){
+        int yes_no,i,view_edit;
+       cout<<"//Welcome To The Interface//\n";
+       cout<<" Press 1 To View And EDit YOur PRofile\n Press 0 To Start Swipping: ";
+       cin>>view_edit;
+       if (view_edit==1)
+       {
+         clint_profile();
+       }
+       else if (view_edit==0)
+       {   
+            int dummy=69,dummy1=0;
+            while(dummy=69){
+                choices_available(dummy1);
+                    
+                cin>>yes_no;
+                if (yes_no==1){
+                    cout<<"Liked"<<endl;
+                }
+                else{
+                    cout<<"//**UNLIKED**//";
+                }
+                cout<<"Press 69 for next profile and 420 to exit"<<endl;
+                dummy1=dummy1+1;
+            }
+        }
+    }
+    else{
+        cout<<"**Enter VAlid User NAme Or Password** ";
+    }
+}
+};
+int main(){
+    Menu a1;
+    a1.user_history();
+}
+author--faizanmirza711
