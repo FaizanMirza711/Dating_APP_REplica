@@ -114,12 +114,12 @@ void user_history(){
 }
 
 void choices_available(int &filetoopen){
-        cout<<" 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻 \n 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻 \n 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻 \n 👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻👩🏻\n";//import This Randomly From The Girl DAtabase
-       cout<<"🌈AARYA🌈";
-       cout<<"🔞19🔞";
-       cout<<"🏫SYMBIOSIS PUNE🏫";
-       cout<<"💕she/her💕";
-       cout<<"Press 1 To LIke 💞💞\n Press 0 To unlike:💔❤️‍🩹";
+        cout<<"\n Girl Girl Girl Girl Girl Girl \n Girl Girl Girl Girl Girl Girl \n Girl Girl Girl Girl Girl Girl \n Girl Girl Girl Girl Girl Girl \n";//import This Randomly From The Girl DAtabase
+       cout<<" NAME: AARYA\n";
+       cout<<" AGE:19\n";
+       cout<<" COLLEGE: SYMBIOSIS PUNE \n";
+       cout<<" she/her \n";
+       cout<<"Press 1 To LIke \n Press 0 To unlike: \n";
 }
 void logging(){
     if (strcmp(password1,password) == 0){
@@ -133,19 +133,32 @@ void logging(){
        }
        else if (view_edit==0)
        {   
-            int dummy=69,dummy1=0;
+            int dummy=69,dummy1=0,command;
             while(dummy=69){
                 choices_available(dummy1);
                     
                 cin>>yes_no;
                 if (yes_no==1){
-                    cout<<"Liked"<<endl;
+                    cout<<"***Liked***"<<endl;
                 }
-                else{
+                else if (yes_no==0){
                     cout<<"//**UNLIKED**//";
                 }
+                else{
+                    cout<<"Enter Valid NUmber Input";
+                }
                 cout<<"Press 69 for next profile and 420 to exit"<<endl;
-                dummy1=dummy1+1;
+                cin>>command;
+                if (command==69)
+                {
+                    dummy1=dummy1+1;
+                }
+                else if(command==420){
+                    logging();
+                }
+                else{
+                    cout<<"**Enter Valid Number Input**";
+                }
             }
         }
     }
@@ -158,4 +171,3 @@ int main(){
     Menu a1;
     a1.user_history();
 }
-author--faizanmirza711
